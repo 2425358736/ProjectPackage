@@ -132,7 +132,9 @@
 </html>
 ```
 @page {size: 310mm 200mm;}
-@page设置打印页面大小 310毫米宽，200毫米高
+@page设置打印页面大小 310毫米宽，200毫米高 
+body {font-family:SimSun}
+设置字体
 ## 准备编写工具类 HtMLToPdf
 ``` java
 import java.io.File;
