@@ -416,5 +416,8 @@ public class IndexController {
     }
 }
 ```
+项目地址
+<a>https://github.com/2425358736/ProjectPackage/tree/master/SpringBoot
+</a>
 #### 启动项目 浏览器访问 http://localhost:8484
 #### 至此 springboot简单搭建结束
