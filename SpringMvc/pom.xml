@@ -1,0 +1,193 @@
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+  xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/maven-v4_0_0.xsd">
+  <modelVersion>4.0.0</modelVersion>
+  <groupId>SpringMvc</groupId>
+  <artifactId>SpringMvc</artifactId>
+  <packaging>war</packaging>
+  <version>1.0-SNAPSHOT</version>
+  <name>SpringMvc Maven Webapp</name>
+  <url>http://maven.apache.org</url>
+
+  <properties>
+    <spring.version>4.3.6.RELEASE</spring.version>
+  </properties>
+
+  <dependencies>
+    <!--单元测试-->
+    <dependency>
+      <groupId>junit</groupId>
+      <artifactId>junit</artifactId>
+      <version>3.8.1</version>
+      <scope>test</scope>
+    </dependency>
+    <!--freemarker模板引擎-->
+    <dependency>
+      <groupId>org.freemarker</groupId>
+      <artifactId>freemarker</artifactId>
+      <version>2.3.23</version>
+    </dependency>
+    <!--spring核心模块core主要的功能是实现了控制反转与依赖注入、Bean配置以及加载。Core模块中有Beans、BeanFactory、BeanDefinitions、ApplicationContext等概念-->
+    <dependency>
+      <groupId>org.springframework</groupId>
+      <artifactId>spring-core</artifactId>
+      <version>${spring.version}</version>
+    </dependency>
+    <!--Spring ApplicationContext特性时所需的全部类-->
+    <dependency>
+      <groupId>org.springframework</groupId>
+      <artifactId>spring-context</artifactId>
+      <version>${spring.version}</version>
+    </dependency>
+    <!--这个jar文件包含支持缓存Cache（ehcache）、JCA、JMX、邮件服务（Java Mail、COS Mail）、任务计划Scheduling（Timer、Quartz）方面的类-->
+    <dependency>
+      <groupId>org.springframework</groupId>
+      <artifactId>spring-context-support</artifactId>
+      <version>${spring.version}</version>
+    </dependency>
+    <!--springmvc -->
+    <dependency>
+      <groupId>org.springframework</groupId>
+      <artifactId>spring-webmvc</artifactId>
+      <version>${spring.version}</version>
+    </dependency>
+    <dependency>
+      <groupId>org.springframework</groupId>
+      <artifactId>spring-aop</artifactId>
+      <version>${spring.version}</version>
+    </dependency>
+    <dependency>
+      <groupId>org.springframework</groupId>
+      <artifactId>spring-aspects</artifactId>
+      <version>${spring.version}</version>
+    </dependency>
+    <dependency>
+      <groupId>org.springframework</groupId>
+      <artifactId>spring-beans</artifactId>
+      <version>${spring.version}</version>
+    </dependency>
+    <!-- log4j-->
+    <dependency>
+      <groupId>log4j</groupId>
+      <artifactId>log4j</artifactId>
+      <version>1.2.14</version>
+    </dependency>
+    <!-- mybatis包-->
+    <dependency>
+      <groupId>commons-dbcp</groupId>
+      <artifactId>commons-dbcp</artifactId>
+      <version>1.4</version>
+    </dependency>
+    <dependency>
+      <groupId>org.springframework</groupId>
+      <artifactId>spring-jdbc</artifactId>
+      <version>${spring.version}</version>
+      <type>jar</type>
+      <scope>compile</scope>
+    </dependency>
+    <dependency>
+      <groupId>org.mybatis</groupId>
+      <artifactId>mybatis</artifactId>
+      <version>3.3.1</version>
+    </dependency>
+    <!--mybatis spring插件-->
+    <dependency>
+      <groupId>org.mybatis</groupId>
+      <artifactId>mybatis-spring</artifactId>
+      <version>1.2.4</version>
+    </dependency>
+    <!-- mysql连接驱动包-->
+    <dependency>
+      <groupId>mysql</groupId>
+      <artifactId>mysql-connector-java</artifactId>
+      <version>5.1.26</version>
+    </dependency>
+    <!-- 连接池-->
+    <dependency>
+      <groupId>c3p0</groupId>
+      <artifactId>c3p0</artifactId>
+      <version>0.9.1.2</version>
+    </dependency>
+  </dependencies>
+  <build>
+    <finalName>SpringMvc</finalName>
+    <plugins>
+      <!--内置jetty服务器插件-->
+      <plugin>
+        <groupId>org.eclipse.jetty</groupId>
+        <artifactId>jetty-maven-plugin</artifactId>
+        <version>9.3.7.v20160115</version>
+        <configuration>
+          <!-- 扫描秒数，若非0则为热部署-->
+          <scanIntervalSeconds>0</scanIntervalSeconds>
+          <reload>automatic</reload>
+          <stopPort>19966</stopPort>
+          <stopKey>foo</stopKey>
+          <stopWait>10</stopWait>
+          <webApp>
+            <!-- 项目根目录-->
+            <contextPath>/</contextPath>
+          </webApp>
+          <httpConnector>
+            <!-- 服务器端口号-->
+            <port>19090</port>
+            <idleTimeout>60000</idleTimeout>
+          </httpConnector>
+          <!-- 请求log-->
+          <requestLog implementation="org.eclipse.jetty.server.NCSARequestLog">
+            <!-- log输出目录-->
+            <filename>target/yyyy_mm_dd.request.log</filename>
+            <!--<filenameDateformat>yyyy_MM_dd</filenameDateformat>-->
+            <!-- log保存天数-->
+            <retainDays>90</retainDays>
+            <!-- log是否附加在文件后-->
+            <append>true</append>
+            <extended>false</extended>
+            <!-- 时区-->
+            <logTimeZone>GMT+8:00</logTimeZone>
+          </requestLog>
+        </configuration>
+      </plugin>
+
+      <!--内置Tomcat7服务器插件-->
+      <plugin>
+        <groupId>org.apache.tomcat.maven</groupId>
+        <artifactId>tomcat7-maven-plugin</artifactId>
+        <version>2.2</version>
+        <configuration>
+          <url>http://localhost:8080/manager/text</url> <!-- tomcat管理路径 -->
+          <server>Tomcat7</server> <!-- 与settings.xml文件中Server的id相同 -->
+          <path>/</path> <!-- 应用的部署位置 -->
+        </configuration>
+      </plugin>
+
+
+      <!--mybatis-generator数据表自动生成-->
+      <plugin>
+        <groupId>org.mybatis.generator</groupId>
+        <artifactId>mybatis-generator-maven-plugin</artifactId>
+        <version>1.3.5</version>
+        <dependencies>
+          <dependency>
+            <groupId> mysql</groupId>
+            <artifactId>mysql-connector-java</artifactId>
+            <version>5.1.26</version>
+          </dependency>
+          <dependency>
+            <groupId>org.mybatis.generator</groupId>
+            <artifactId>mybatis-generator-core</artifactId>
+            <version>1.3.5</version>
+          </dependency>
+        </dependencies>
+        <configuration>
+          <!--允许移动生成的文件 -->
+          <verbose>true</verbose>
+          <!-- 是否覆盖 -->
+          <overwrite>true</overwrite>
+          <!-- 自动生成的配置 -->
+          <configurationFile>
+            src/main/resources/mybatis/generatorConfig.xml</configurationFile>
+        </configuration>
+      </plugin>
+    </plugins>
+  </build>
+</project>
