@@ -72,6 +72,7 @@ public class ZJM extends JFrame implements Runnable{
         n2.add(m5);
         //设置鼠标触发器
         m5.addActionListener(new ActionListener(){
+            @Override
             public void actionPerformed(ActionEvent e){
                 new Sz();
                 new ZJM();
@@ -86,6 +87,7 @@ public class ZJM extends JFrame implements Runnable{
         n1.add(m3);
         //初级鼠标触发器
         m1.addActionListener(new ActionListener(){
+            @Override
             public void actionPerformed(ActionEvent e) {
                 ZJM jm=new ZJM();
                 jm.hang=10;
@@ -102,6 +104,7 @@ public class ZJM extends JFrame implements Runnable{
         });
         //中级鼠标触发器
         m2.addActionListener(new ActionListener(){
+            @Override
             public void actionPerformed(ActionEvent e) {
                 ZJM jm=new ZJM();
                 jm.hang=20;
@@ -118,6 +121,7 @@ public class ZJM extends JFrame implements Runnable{
         });
         //高级鼠标触发器
         m3.addActionListener(new ActionListener(){
+            @Override
             public void actionPerformed(ActionEvent e) {
                 ZJM jm=new ZJM();
 
@@ -289,6 +293,7 @@ public class ZJM extends JFrame implements Runnable{
                         }
                     }
                     //右键触发器
+                    @Override
                     public void mouseClicked(MouseEvent e) {
                         if((e.getModifiers()&InputEvent.BUTTON1_MASK)!=0) {
                             //button[a][b].setVisible(false);
@@ -335,6 +340,7 @@ public class ZJM extends JFrame implements Runnable{
                                     b.setBounds(300,70, 300, 100);
                                     //开始第二次游戏
                                     t.addActionListener(new ActionListener(){
+                                                            @Override
                                                             public void actionPerformed(ActionEvent e) {
                                                                 me.setVisible(false);
                                                                 aaa.setVisible(false);
@@ -391,6 +397,7 @@ public class ZJM extends JFrame implements Runnable{
                                     Button t=new Button("再来一次");
                                     t.setBounds(0, 100, 400, 100);
                                     t.addActionListener(new ActionListener(){
+                                                            @Override
                                                             public void actionPerformed(ActionEvent e) {
                                                                 me.setVisible(false);
                                                                 aaa.setVisible(false);

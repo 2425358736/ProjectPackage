@@ -39,6 +39,7 @@ public class Sz {
         fr.add(l4);
         fr.add(b1);
         b1.addActionListener(new ActionListener(){
+            @Override
             public void actionPerformed(ActionEvent e){
                 //Calendar cal=Calendar.getInstance();
                 //b=cal.getTimeInMillis();

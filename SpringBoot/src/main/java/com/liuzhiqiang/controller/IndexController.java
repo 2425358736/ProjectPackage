@@ -8,10 +8,6 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 import org.springframework.web.servlet.ModelAndView;
 
-import java.util.Date;
-import java.util.HashMap;
-import java.util.Map;
-
 /**
  * Created by liuzhiqiang on 2018/1/2.
  */
@@ -24,5 +20,15 @@ public class IndexController {
         User user = userMapper.selectByPrimaryKey(Long.parseLong("1"));
         modelMap.put("map",user);
         return new ModelAndView("index", modelMap);
+    }
+
+    @RequestMapping("/webRtc")
+    ModelAndView webRtc(ModelMap modelMap) {
+        return new ModelAndView("webrt", modelMap);
+    }
+
+    @RequestMapping("/webRtcTwo")
+    ModelAndView webRtcTwo(ModelMap modelMap) {
+        return new ModelAndView("webrt_two", modelMap);
     }
 }

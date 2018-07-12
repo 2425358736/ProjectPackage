@@ -73,6 +73,7 @@ public class jim{
     	a3.setBounds(x2, y2, icon2.getIconWidth(),icon2.getIconHeight() );*/
 		timer = new Timer(); //创建定时器对象
 		timer.schedule(new TimerTask(){
+			@Override
 			public void run(){ //定时干的那个事-每10毫秒走一次
 				for(int i=0;i<4;i++){
 					x1[i]+=i-1;
