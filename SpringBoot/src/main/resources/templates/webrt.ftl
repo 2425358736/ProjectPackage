@@ -40,7 +40,7 @@ var PeerConnection = window.webkitRTCPeerConnection ||
                     window.RTCPeerConnection ||
                     window.mozRTCPeerConnection;
 //与后台服务器的WebSocket连接
-var socket = new WebSocket("ws://192.168.5.107:8484/websocket");
+var socket = new WebSocket("ws://123.206.19.217:8484/websocket");
 
 var stream_two;
 
