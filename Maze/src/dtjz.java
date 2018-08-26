@@ -89,7 +89,8 @@ public class dtjz {
 	    			}
 	    		   //zj.setText("÷ÌΩ≈");
 	    		   asd.addKeyListener(new KeyAdapter(){
-	    				public void keyPressed(KeyEvent e){
+	    				@Override
+						public void keyPressed(KeyEvent e){
 	    					x=zj.getX();
 	    					y=zj.getY();
 	    					int a=x/zj.getWidth();
