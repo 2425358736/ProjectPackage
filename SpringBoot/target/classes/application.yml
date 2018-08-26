@@ -13,9 +13,9 @@ spring:
     template-loader-path: classpath:/templates
 #druid数据源相关配置配置
   datasource:
-    url: jdbc:mysql://127.0.0.1:3306/test?useUnicode=true&amp;characterEncoding=UTF-8&amp;tinyInt1isBit=false
+    url: jdbc:mysql://123.206.19.217:3306/liuzhiqiang?useUnicode=true&amp;characterEncoding=UTF-8&amp;tinyInt1isBit=false
     username: root
-    password: root
+    password: Lzq_199528
     driver-class-name: com.mysql.jdbc.Driver
     type: org.apache.tomcat.jdbc.pool.DataSource
 

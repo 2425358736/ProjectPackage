@@ -35,7 +35,7 @@ var getUserMedia = navigator.getUserMedia || navigator.mozGetUserMedia ||  navig
 //兼容浏览器的PeerConnection写法               
 var PeerConnection = window.webkitRTCPeerConnection || window.webkitPeerConnection00 || window.PeerConnection || window.mozRTCPeerConnection;
 //与后台服务器的WebSocket连接
-var socket = new WebSocket("ws://192.168.5.107:8484/websocket");
+var socket = new WebSocket("ws://123.206.19.217:8484/websocket");
 
 //创建PeerConnection实例
 var pc = new PeerConnection(iceServer);
