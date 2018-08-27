@@ -61,7 +61,7 @@ border-color:#09F;}
      <td>汉族</td> 
     </tr> 
     <tr> 
-     <td>民&nbsp;族</td> 
+     <td>民&nbsp;族dddddddddddddddddddddddddddddddd</td> 
      <td>汉</td> 
      <td>政治面貌</td> 
      <td>团员</td> 
